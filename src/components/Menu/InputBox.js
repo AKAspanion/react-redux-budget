@@ -9,10 +9,11 @@ class InputBox extends React.Component {
         return (
             <div className='input-box' >
                 <input
+                    type={this.props.type}
                     value={this.props.stateValue}
                     onChange={this.props.handleInputChange}
-                    placeholder={this.props.type}
-                    className={this.props.type}
+                    placeholder={this.props.valueType}
+                    className={this.props.valueType}
                     style={budgetType === '+' ? this.plusStyles:this.minusStyles}
                 />
             </div>

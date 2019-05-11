@@ -7,21 +7,17 @@ class ItemList extends React.Component {
         color: this.props.color
     }
 
-    handleDelete = (event) =>{
-        this.props.onDeleteClick( event.target.getAttribute('itemID'));
-    }
-
     renderItems = (items) =>{
         return (
             <div>
                 {items.map(item => {
                     return (
                         <Item
+                            key={item.id}
                             id={item.id}
                             amount={item.amount}
-                            description={item.description}            
+                            description={item.desc}            
                             budgetType = {this.props.budgetType}
-                            handleDelete = {this.handleDelete}
                         />
                     )
                 })}

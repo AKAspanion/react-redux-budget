@@ -1,4 +1,13 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
+import {
+    deleteIncome,
+    deleteExpense,
+    updateIncome,
+    updateExpense
+} from '../../actions';
+import { calculatePercentage } from '../../helpers';
 
 class Item extends React.Component {
 
@@ -28,8 +37,21 @@ class Item extends React.Component {
 
     } 
 
+    handleDelete = () =>{
+        const {id,budgetType,amount} = this.props;
+        if(budgetType === '+'){
+            this.props.updateIncome(this.props.totalIncome - parseFloat(amount))
+            this.props.deleteIncome(id);
+        }else{
+            this.props.updateExpense(this.props.totalExpense - parseFloat(amount))
+            this.props.deleteExpense(id);
+
+        }
+
+    }
+
     render() {
-        const {id,budgetType,amount,description,handleDelete} = this.props;
+        const {id,budgetType,amount,description} = this.props;
         return (
             <div className="item" key={id}>
                 <div className="item-description">
@@ -41,11 +63,11 @@ class Item extends React.Component {
                         >{budgetType}{amount}</div>
                     <div className="percentage"
                         style={budgetType === '+' ? this.style.plusPercentStyle:this.style.minusPercentStyle}
-                        >%</div>
-                    <div itemID={id}
+                        >{calculatePercentage(this.props.totalIncome, amount)}%</div>
+                    <div
                         className="delete"
                         style={budgetType === '+' ? this.style.plusDeleteStyle:this.style.minusDeleteStyle}
-                        onClick={handleDelete}
+                        onClick={this.handleDelete}
                         >X</div>
                 </div>
             </div>
@@ -53,4 +75,16 @@ class Item extends React.Component {
     }
 }
 
-export default Item;
+const mapStateToProps = (state) =>{
+    return {
+        totalIncome: state.budget.totalIncome,
+        totalExpense: state.budget.totalExpense
+    }
+}
+
+export default connect(mapStateToProps, {
+    deleteIncome,
+    deleteExpense,
+    updateIncome,
+    updateExpense
+})(Item);

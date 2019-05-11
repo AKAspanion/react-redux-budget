@@ -5,12 +5,6 @@ class Tile extends React.Component {
     plusStyles = {background: '#5C965D'}
     minusStyles = {background: '#D4383E'}
 
-    renderPercentage = (budgetType) =>{
-        return budgetType === '-' ? 
-            <span className="percentage">90%</span> : 
-            <span className="percentage" style={{color: '#ccc'}}>___</span>
-    }
-
     render() {
         const {title, amount, budgetType} = this.props;
         return (
