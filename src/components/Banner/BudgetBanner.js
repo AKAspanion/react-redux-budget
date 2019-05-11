@@ -17,10 +17,12 @@ class BudgetBanner extends React.Component {
                 />
                 <div className="tile-container">
                     <Tile 
+                        total={budget.totalIncome}
                         title="INCOME"
                         budgetType='+'                        
                         amount={budget.totalIncome}/>
                     <Tile
+                        total={budget.totalIncome}
                         title="EXPENSES"
                         budgetType='-'
                         amount={budget.totalExpense}

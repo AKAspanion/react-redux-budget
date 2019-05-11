@@ -1,9 +1,17 @@
 import React from 'react';
+import { calculatePercentage } from '../../helpers';
 
 class Tile extends React.Component {
     
     plusStyles = {background: '#5C965D'}
     minusStyles = {background: '#D4383E'}
+
+    renderPercentage = (budgetType) =>{
+        const {amount, total} = this.props;
+        return budgetType === '-' ? 
+            <div className="percentage">{calculatePercentage(total, amount) || 0}%</div> : 
+            <div className="percentage">100%</div>
+    }
 
     render() {
         const {title, amount, budgetType} = this.props;
@@ -14,7 +22,7 @@ class Tile extends React.Component {
                 </div>
                 <div className="tile-amount">
                     {budgetType} {amount || 0}
-                    {this.renderPercentage(budgetType)}
+                    {this.renderPercentage(budgetType)}     
                 </div>
             </div>
         );

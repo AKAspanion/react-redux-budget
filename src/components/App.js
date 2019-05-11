@@ -4,10 +4,13 @@ import { connect } from 'react-redux';
 import BudgetBanner from './Banner/BudgetBanner';
 import Content from './Content/Content';
 import Menu from "./Menu/Menu";
+import Error from './Content/Error';
+
 
 import {
   updateIncome,
-  updateExpense
+  updateExpense,
+  updateError
 } from '../actions';
 
 import './style.css';
@@ -17,13 +20,16 @@ class App extends React.Component {
   componentDidMount = () =>{
     this.props.updateIncome(0);
     this.props.updateExpense(0);
+    this.props.updateError('');
   }
+
 
   render() {
       return (
-          <div className="app">
+          <div className="app">     
             <BudgetBanner />
-            <Menu />
+            <Menu />       
+            <Error/>
             <Content />
           </div>
       );
@@ -32,5 +38,6 @@ class App extends React.Component {
 
 export default connect(null, {
   updateIncome,
-  updateExpense
+  updateExpense,
+  updateError
 })(App);

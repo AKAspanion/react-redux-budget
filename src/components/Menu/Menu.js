@@ -13,11 +13,13 @@ import {
     updateIncome,
     updateExpense,
     addIncome,
-    addExpense 
+    addExpense,
+    updateError
 } from '../../actions';
 import {
     validateAdd,
-    isDescPresent
+    isDescPresent,
+    createError
 } from '../../helpers';
 
 class Menu extends React.Component {
@@ -26,7 +28,7 @@ class Menu extends React.Component {
         this.props.changeBudgetType(event.target.value);
     }
     handleButtonClick = () =>{
-        const {form, budget} = this.props;
+        const {form, budget, updateError, addIncome,addExpense,updateIncome, updateExpense} = this.props;
         const {desc, amount} = form;
         if(validateAdd(form.desc, form.amount)){
             let newBudgetItem = {
@@ -36,17 +38,22 @@ class Menu extends React.Component {
             }
             if(!isDescPresent(budget.items, desc)){
                 if(budget.budgetType === '+'){
-                    this.props.addIncome(newBudgetItem);
-                    this.props.updateIncome(parseFloat(amount) + (budget.totalIncome || 0));
+                    addIncome(newBudgetItem);
+                    updateIncome(parseFloat(amount) + (budget.totalIncome || 0));
                 }else{
-                    this.props.addExpense(newBudgetItem);
-                    this.props.updateExpense(parseFloat(amount) + (budget.totalExpense || 0));
+                    if(budget.totalIncome-budget.totalExpense-form.amount < 0){
+                        createError(updateError,'Add more Income to proceed!');
+                    }else{
+                        addExpense(newBudgetItem);
+                        updateExpense(parseFloat(amount) + (budget.totalExpense || 0));
+                    }
+                        
                 }        
             }else{
-                alert('budget item already added');
+                createError(updateError,'Given description item already present!');
             }
         }else{
-            alert('fill it');
+            createError(updateError,'Check that description is not empty & amount is a positive float upto 2 decimal places & not 0!');
         }
     }
     handleDescriptionChange = (event) =>{
@@ -99,5 +106,6 @@ export default connect(mapStateToProps, {
     updateIncome,
     updateExpense,
     addIncome,
-    addExpense 
+    addExpense,
+    updateError
 })(Menu);

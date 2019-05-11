@@ -5,9 +5,10 @@ import {
     deleteIncome,
     deleteExpense,
     updateIncome,
-    updateExpense
+    updateExpense,
+    updateError
 } from '../../actions';
-import { calculatePercentage } from '../../helpers';
+import { calculatePercentage, createError } from '../../helpers';
 
 class Item extends React.Component {
 
@@ -38,16 +39,20 @@ class Item extends React.Component {
     } 
 
     handleDelete = () =>{
-        const {id,budgetType,amount} = this.props;
+        const {id,budgetType,amount,totalIncome,
+            totalExpense, updateIncome, updateExpense,
+            deleteIncome,deleteExpense,updateError} = this.props;
         if(budgetType === '+'){
-            this.props.updateIncome(this.props.totalIncome - parseFloat(amount))
-            this.props.deleteIncome(id);
+            if(totalIncome-parseFloat(amount)-totalExpense < 0 ){
+                createError(updateError,'Deleting this will make budget negative!');
+            }else{
+                updateIncome(totalIncome - parseFloat(amount))
+                deleteIncome(id);
+            }
         }else{
-            this.props.updateExpense(this.props.totalExpense - parseFloat(amount))
-            this.props.deleteExpense(id);
-
+            updateExpense(totalExpense - parseFloat(amount))
+            deleteExpense(id);
         }
-
     }
 
     render() {
@@ -68,7 +73,7 @@ class Item extends React.Component {
                         className="delete"
                         style={budgetType === '+' ? this.style.plusDeleteStyle:this.style.minusDeleteStyle}
                         onClick={this.handleDelete}
-                        >X</div>
+                        >&#10006;</div>
                 </div>
             </div>
         );
@@ -86,5 +91,6 @@ export default connect(mapStateToProps, {
     deleteIncome,
     deleteExpense,
     updateIncome,
-    updateExpense
+    updateExpense,
+    updateError
 })(Item);

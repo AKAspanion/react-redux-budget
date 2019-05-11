@@ -24,6 +24,14 @@ export const deleteExpense = (payload) =>{
         payload
     })
 }
+
+export const updateError = (payload) =>{
+    return ({
+        type: 'UPDATE_ERROR',
+        payload
+    })
+}
+
 export const updateIncome = (payload) =>{
     return ({
         type: 'UPDATE_INCOME',

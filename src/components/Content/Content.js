@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux'
 
 import ItemList from './ItemList';
-
 class Content extends React.Component {
 
     render() {
