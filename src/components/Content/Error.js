@@ -27,11 +27,12 @@ class Error extends React.Component {
 
     render() {
         return (
-            <div className="error" onClick={this.handleButtonClick}>
+            <div className="error" >
                 <div>
                     {this.props.error || ''}
                 </div>
-                <div>
+                <div className="cross" 
+                    onClick={this.handleButtonClick}>
                     {this.showCross()}
                 </div>
             </div>

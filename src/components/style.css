@@ -33,7 +33,7 @@ body{
     display: flex;
     max-width: 900px;
     margin: 3% auto;
-    transform: translateX(-65px);
+    transform: translateX(-80px);
     justify-content: space-between;
     align-content: center;
 }
@@ -144,7 +144,7 @@ body{
     width: 250px;
 }
 .item-amount{
-    cursor: default;
+    cursor: pointer;
     transform: translateX(110px);
     transition: all 0.4s ease;
     text-align: right;
@@ -175,5 +175,8 @@ body{
     margin: 10px auto;
     text-align: center;
     color: red;
+    cursor: default;
+}
+.cross{
     cursor: pointer;
 }
