@@ -8,7 +8,7 @@ import {
     updateExpense,
     updateError
 } from '../../actions';
-import { calculatePercentage, createError } from '../../helpers';
+import { calculatePercentage, createError,addCommas } from '../../helpers';
 
 class Item extends React.Component {
 
@@ -65,7 +65,7 @@ class Item extends React.Component {
                 <div className="item-amount">
                     <div className="money" 
                         style={budgetType === '+' ? this.style.plusMoneyStyle:this.style.minusMoneyStyle}
-                        >{budgetType}{amount}</div>
+                        >{budgetType}{addCommas(amount)}</div>
                     <div className="percentage"
                         style={budgetType === '+' ? this.style.plusPercentStyle:this.style.minusPercentStyle}
                         >{calculatePercentage(this.props.totalIncome, amount)}%</div>

@@ -33,7 +33,7 @@ body{
     display: flex;
     max-width: 900px;
     margin: 3% auto;
-    transform: translateX(-25px);
+    transform: translateX(-65px);
     justify-content: space-between;
     align-content: center;
 }
@@ -47,19 +47,21 @@ body{
     padding: 1vw 2vw;
     margin: 1vw;
     overflow: hidden;
-    justify-content: space-between;
-    align-content: center;
+    justify-content: space-between;  
+    align-items: center;
+    transition: all 1s ease;
 }
 .tile-title{
     color: white;
 }
 .tile-amount{
-    display: flex;
-    justify-content: right;
-    transform: translateX(70px);
-    cursor: pointer;
     color: white;
+    cursor: pointer;
     transition: all 0.4s ease;
+    text-align: right;
+    display: flex;
+    transform: translateX(80px);
+    justify-content: center;
 }
 .tile-amount:hover{
     transform: translateX(0px);
@@ -130,7 +132,7 @@ body{
     width: 300px;
 }
 .amount{
-    width: 80px;
+    width: 100px;
 }
 
 .header-list{
@@ -153,7 +155,7 @@ body{
     transform: translateX(0px);
 }
 .money{
-    width: 50px;
+    width: 100px;
     background: transparent;
 }
 .percentage{

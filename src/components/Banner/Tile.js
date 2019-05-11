@@ -21,8 +21,10 @@ class Tile extends React.Component {
                     {title}
                 </div>
                 <div className="tile-amount">
-                    {budgetType} {amount || 0}
-                    {this.renderPercentage(budgetType)}     
+                    <div className="money" style={{color: '#fff'}}>
+                        {budgetType} {amount || 0}                        
+                    </div>
+                    {this.renderPercentage(budgetType)} 
                 </div>
             </div>
         );
