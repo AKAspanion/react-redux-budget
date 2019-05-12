@@ -31,21 +31,27 @@ body{
 }
 .content{
     display: flex;
-    max-width: 900px;
-    margin: 3% auto;
-    transform: translateX(-80px);
+    max-width: 1200px;
+    height: 45vh;
+    margin: 3% auto;    
+    overflow-x: hidden;
+    overflow-y: scroll;
     justify-content: space-between;
     align-content: center;
 }
+.content::-webkit-scrollbar { 
+    display: none; 
+} 
 .tile-container{
     margin: 0 auto;
     text-align: center;
-    width: 30vw;
+    width: 400px;
 }
 .tile{
     display: flex;
-    padding: 1vw 2vw;
-    margin: 1vw;
+    width: 350px;
+    padding: 15px 25px;
+    margin: 15px 0;
     overflow: hidden;
     justify-content: space-between;  
     align-items: center;
@@ -113,7 +119,7 @@ body{
 }
 
 .item-list{
-    width: 100%;
+    width: 98%;
     margin: 1%;
 }
 .item{
@@ -171,6 +177,7 @@ body{
 .error{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 900px;
     margin: 10px auto;
     text-align: center;
@@ -179,4 +186,34 @@ body{
 }
 .cross{
     cursor: pointer;
+}
+
+@media only screen and (max-width: 1100px) {
+    .content{
+        display: block;
+        height: 250px;
+        transform: translateX(0);
+    }
+    .menu{
+        display: block;
+        padding: 10px;
+        height: 160px;
+    }
+    .button-container{ 
+        display: flex;       
+        margin: 0 auto;
+        justify-content: space-around;
+        align-items: center; 
+    }
+    
+    .tile-amount{
+        transform: translateX(0);        
+    }
+    
+    .item-amount{
+        transform: translateX(0); 
+    }
+    .error{
+        width: 400px;
+    }
 }

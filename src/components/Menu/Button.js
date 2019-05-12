@@ -7,9 +7,12 @@ class Button extends React.Component {
     render() {
         const {budgetType} = this.props;
         return (
-            <div className="button"
-                style={budgetType === '+' ? this.plusStyles:this.minusStyles}>
-                <span onClick={this.props.handleButtonClick}>&#10003;</span>
+            <div className='button-container'>
+                <div className="button"
+                    style={budgetType === '+' ? this.plusStyles:this.minusStyles}>
+                    <div onClick={this.props.handleButtonClick}>&#10003;</div>
+                </div>
+
             </div>
         );
     }
