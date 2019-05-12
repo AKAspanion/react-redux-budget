@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-redux-budget/static/css/main.02225674.chunk.css",
+    "main.css": "/react-redux-budget/static/css/main.f011dd8c.chunk.css",
     "main.js": "/react-redux-budget/static/js/main.0438c5a7.chunk.js",
     "main.js.map": "/react-redux-budget/static/js/main.0438c5a7.chunk.js.map",
     "runtime~main.js": "/react-redux-budget/static/js/runtime~main.d2470bf5.js",
@@ -8,9 +8,9 @@
     "static/js/2.10d858db.chunk.js": "/react-redux-budget/static/js/2.10d858db.chunk.js",
     "static/js/2.10d858db.chunk.js.map": "/react-redux-budget/static/js/2.10d858db.chunk.js.map",
     "index.html": "/react-redux-budget/index.html",
-    "precache-manifest.a7591fe364b7cb82607aafcbfd7700fc.js": "/react-redux-budget/precache-manifest.a7591fe364b7cb82607aafcbfd7700fc.js",
+    "precache-manifest.f2736acca680201467204905f7d339a3.js": "/react-redux-budget/precache-manifest.f2736acca680201467204905f7d339a3.js",
     "service-worker.js": "/react-redux-budget/service-worker.js",
-    "static/css/main.02225674.chunk.css.map": "/react-redux-budget/static/css/main.02225674.chunk.css.map",
+    "static/css/main.f011dd8c.chunk.css.map": "/react-redux-budget/static/css/main.f011dd8c.chunk.css.map",
     "static/media/style.css": "/react-redux-budget/static/media/bg-banner.a418c2f8.jpg"
   }
 }
