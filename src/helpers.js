@@ -27,7 +27,7 @@ export const createError = (errorFunction, msg) =>{
 }
 
 export const validateAdd = (desc, amount) => {
-    return desc !== '' && amount.match(/^[0-9]{1,9}(?:\.[0-9]{1,2})?$/);
+    return desc !== '' && amount.match(/^[0-9]{1,9}(?:\.[0-9]{1,2})?$/) && parseFloat(amount) !== 0;
 }
 
 export const isIdPresent = (arr, id)=>{
