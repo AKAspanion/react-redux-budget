@@ -45,11 +45,11 @@ body{
 .tile-container{
     margin: 0 auto;
     text-align: center;
-    width: 400px;
+    width: 350px;
 }
 .tile{
     display: flex;
-    width: 350px;
+    width: 300px;
     padding: 15px 25px;
     margin: 15px 0;
     overflow: hidden;
@@ -191,7 +191,7 @@ body{
 @media only screen and (max-width: 1100px) {
     .content{
         display: block;
-        height: 250px;
+        height: 300px;
         transform: translateX(0);
     }
     .menu{
@@ -214,6 +214,6 @@ body{
         transform: translateX(0); 
     }
     .error{
-        width: 400px;
+        width: 350px;
     }
 }
