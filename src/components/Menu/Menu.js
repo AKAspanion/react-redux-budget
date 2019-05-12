@@ -28,7 +28,10 @@ class Menu extends React.Component {
         this.props.changeBudgetType(event.target.value);
     }
     handleButtonClick = () =>{
-        const {form, budget, updateError, addIncome,addExpense,updateIncome, updateExpense} = this.props;
+        const {form, budget, updateError, 
+            addIncome,addExpense,
+            updateIncome, updateExpense,
+            changeFormDescription,changeFormAmount} = this.props;
         const {desc, amount} = form;
         if(validateAdd(form.desc, form.amount)){
             let newBudgetItem = {
@@ -47,8 +50,10 @@ class Menu extends React.Component {
                         addExpense(newBudgetItem);
                         updateExpense(parseFloat(amount) + (budget.totalExpense || 0));
                     }
-                        
-                }        
+                }
+                changeFormDescription('');
+                changeFormAmount('');  
+
             }else{
                 createError(updateError,'Given description item already present!');
             }
