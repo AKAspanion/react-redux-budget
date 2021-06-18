@@ -16,5 +16,17 @@ jobs:
         env: 
           NAME_SECRET: ${{ secrets.NAME }}
         if:  env.NAME_SECRET == 'Ankit'
-        run: echo "I know what the secret is!"
+        run: echo "I know what the DEV secret is!"
+        
+  STAGE:
+    runs-on: ubuntu-latest
+    environment: STAGE
+    needs: DEV
+    steps:
+      - uses: actions/checkout@v2
+      - name: Demo of secret
+        env: 
+          NAME_SECRET: ${{ secrets.NAME }}
+        if:  env.NAME_SECRET == 'Kumar'
+        run: echo "I know what the STAGE secret is!"
  
