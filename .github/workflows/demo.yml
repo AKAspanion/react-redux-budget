@@ -4,8 +4,7 @@
 name: Node.js Package
 
 on:
-  release:
-    types: [created]
+  workflow_dispatch:
 
 jobs:
   DEV:
@@ -14,6 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run demo script
-        run: | 
-          echo "hello"
+        run: echo NAME
+        env: 
+          NAME: ${{ secrets.NAME }}
  
