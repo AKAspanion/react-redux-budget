@@ -15,5 +15,7 @@ jobs:
       - name: Demo of secret
         env: 
           NAME_SECRET: ${{ secrets.NAME }}
-        run: echo env
+        run: echo $NAME_SECRET
+      - name: View all env variables
+        run: env
  
