@@ -15,7 +15,6 @@ jobs:
       - name: Demo of secret
         env: 
           NAME_SECRET: ${{ secrets.NAME }}
-        run: echo $NAME_SECRET
-      - name: View all env variables
-        run: env
+        if:  env.NAME_SECRET == 'Ankit'
+        run: echo "I know what the secret is!"
  
